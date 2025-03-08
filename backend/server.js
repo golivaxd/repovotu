@@ -1,10 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
-const routes = require('./routes');
-require('dotenv').config();
+const pool = require('./db');
 
-app.use(express.json()); // Para poder parsear el cuerpo de las peticiones JSON
-app.use('/api', routes);
+app.use(express.json()); // Para parsear cuerpos de solicitudes JSON
+
+app.use('/api', require('./routes'));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
