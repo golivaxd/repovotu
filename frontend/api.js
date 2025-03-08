@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'tu_url_backend_de_render'
+  baseURL: https://votu.onrender.com
 });
 
 export default api;
