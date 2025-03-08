@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import api from './api';
+import { getUsuarios } from './api';
 
 function App() {
-  const [data, setData] = useState([]);
+  const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await api.get('/api/data');
-      setData(result.data);
+    const fetchUsuarios = async () => {
+      try {
+        const data = await getUsuarios();
+        setUsuarios(data);
+      } catch (error) {
+        console.error('Error fetching usuarios:', error);
+      }
     };
-    fetchData();
+
+    fetchUsuarios();
   }, []);
 
   return (
     <div className="App">
-      <h1>Datos desde Supabase</h1>
+      <h1>Listado de Usuarios</h1>
       <ul>
-        {data.map(item => (
-          <li key={item.id}>{item.name}</li>
+        {usuarios.map(usuario => (
+          <li key={usuario.id_usuario}>
+            {usuario.nombre_usuario} - {usuario.correo_electronico} - {usuario.tipo_usuario}
+          </li>
         ))}
       </ul>
     </div>
