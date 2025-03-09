@@ -7,7 +7,9 @@ function App() {
   useEffect(() => {
     const fetchUsuarios = async () => {
       try {
+        console.log("Solicitando usuarios...");
         const data = await getUsuarios();
+        console.log("Usuarios recibidos:", data);
         setUsuarios(data);
       } catch (error) {
         console.error('Error fetching usuarios:', error);
