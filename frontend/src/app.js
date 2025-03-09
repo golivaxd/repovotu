@@ -25,7 +25,7 @@ function App() {
       <ul>
         {usuarios.map(usuario => (
           <li key={usuario.id_usuario}>
-            {usuario.nombre_usuario} - {usuario.correo_electronico} - {usuario.tipo_usuario}
+            {usuario.nombre_usuario}
           </li>
         ))}
       </ul>
@@ -34,4 +34,3 @@ function App() {
 }
 
 export default App;
-
