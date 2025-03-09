@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://votu.onrender.com' // Asegúrate de reemplazar esto con la URL de tu backend en Render
+  baseURL: 'https://votu.onrender.com' // URL de tu backend en Render
 });
 
 export const getUsuarios = async () => {
