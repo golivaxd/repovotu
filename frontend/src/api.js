@@ -15,3 +15,4 @@ export const getUsuarios = async () => {
 };
 
 export default api;
+
